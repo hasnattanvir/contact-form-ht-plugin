@@ -57,7 +57,7 @@ if (!class_exists('Contact_Form_Admin')) {
                 echo '<td>' . esc_html($row->email) . '</td>';
                 echo '<td>' . esc_html($row->phone) . '</td>';
                 echo '<td>' . esc_html($row->message) . '</td>';
-                echo '<td><a href="' . esc_url($row->photo_url) . '" target="_blank">View Photo</a></td>';
+                echo '<td><img width="100px" src="' . esc_url($row->photo_url) . '" alt="photo"> <br/> <a href="' . esc_url($row->photo_url) . '" target="_blank">View Photo</a></td>';
                 echo '<td>' . esc_html($row->date) . '</td>';
                 echo '<td>';
                 echo '<a href="' . wp_nonce_url(admin_url('admin-post.php?action=delete_contact_form_entry&id=' . $row->id), 'delete_contact_form_entry_' . $row->id) . '">Delete</a> | ';
