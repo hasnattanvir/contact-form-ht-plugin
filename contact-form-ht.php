@@ -1,9 +1,17 @@
 <?php
 /**
- * Plugin Name: Contact Form Plugin
+ * Plugin Name: Contact Form HT
  * Description: A custom contact form plugin with admin dashboard capabilities.
  * Version: 1.0
- * Author: Your Name
+ * Author: A H Tanvir
+ * Requires at least:5.6
+ * Requires PHP:8.0
+ * Author:A H Tanvir
+ * Author URI: https://github.com/hasnattanvir
+ * License: GPL V2 or later
+ * License URI: http://www.gnu.org/licenses/lgpl.html
+ * Update URI: https://github.com/hasnattanvir/contact-form-ht-plugin
+ * Text Domain:cfht
  */
 
 if (!defined('ABSPATH')) {
