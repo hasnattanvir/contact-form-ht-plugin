@@ -1,0 +1,17 @@
+#contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form label {
+    margin-top: 10px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    margin-top: 5px;
+}
+
+#contact-form button {
+    margin-top: 10px;
+}
