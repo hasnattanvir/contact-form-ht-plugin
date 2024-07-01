@@ -20,20 +20,22 @@ if (!class_exists('Contact_Form')) {
         public function render_form_shortcode() {
             ob_start();
             ?>
-            <form id="contact-form" enctype="multipart/form-data">
-                <label for="cf-name">Name:</label>
-                <input type="text" id="cf-name" name="name" required>
-                <label for="cf-email">Email:</label>
-                <input type="email" id="cf-email" name="email" required>
-                <label for="cf-phone">Phone Number:</label>
-                <input type="tel" id="cf-phone" name="phone" required>
-                <label for="cf-photo">Photo:</label>
-                <input type="file" id="cf-photo" name="photo" required>
-                <label for="cf-message">Message:</label>
-                <textarea id="cf-message" name="message" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-            <div id="cf-response"></div>
+            <div class="htsection">
+                <form id="contact-form" enctype="multipart/form-data">
+                    <label for="cf-name">Name:</label>
+                    <input type="text" id="cf-name" name="name" required>
+                    <label for="cf-email">Email:</label>
+                    <input type="email" id="cf-email" name="email" required>
+                    <label for="cf-phone">Phone Number:</label>
+                    <input type="tel" id="cf-phone" name="phone" required>
+                    <label for="cf-photo">Photo:</label>
+                    <input type="file" id="cf-photo" name="photo" required>
+                    <label for="cf-message">Message:</label>
+                    <textarea id="cf-message" name="message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+                <div id="cf-response"></div>
+            </div>
             <?php
             return ob_get_clean();
         }

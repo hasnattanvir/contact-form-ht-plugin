@@ -24,6 +24,14 @@ if (!class_exists('Contact_Form_Admin')) {
                 26
             );
             add_submenu_page(
+                'contact-form-submissions',
+                'Info',
+                'Info',
+                'manage_options',
+                'contact-form-info',
+                array($this, 'info_page')
+            );
+            add_submenu_page(
                 null,
                 'Edit Contact Form Entry',
                 'Edit Contact Form Entry',
@@ -126,6 +134,9 @@ if (!class_exists('Contact_Form_Admin')) {
             exit;
         }
 
+        public function info_page() {
+            include plugin_dir_path(__FILE__) . '../templates/info-page.php';
+        }
     }
 }
 ?>

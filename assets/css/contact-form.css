@@ -1,17 +1,67 @@
+/* Normalize box-sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Form container */
 #contact-form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Labels */
 #contact-form label {
     margin-top: 10px;
+    font-weight: bold;
 }
 
+/* Inputs and textareas */
 #contact-form input,
 #contact-form textarea {
     margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-width: 100%;
+    outline: none;
+    resize: vertical;
+}
+#contact-form textarea {
+    height: 150px;
+}
+/* Styling for photo section */
+#cf-photo {
+    background-color: #f5f5dc;
+    padding: 11px;
 }
 
+/* Button styling */
 #contact-form button {
     margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Responsive section */
+@media (max-width: 768px) {
+    #contact-form {
+        padding: 10px;
+    }
+}
+
+/* Section styling */
+.htsection {
+    width: 900px;
+    max-width: 100%;
 }

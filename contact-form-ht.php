@@ -11,6 +11,7 @@
  * License: GPL V2 or later
  * License URI: http://www.gnu.org/licenses/lgpl.html
  * Update URI: https://github.com/hasnattanvir/contact-form-ht-plugin
+ * Company Name: linuxbangla
  * Text Domain:cfht
  */
 
