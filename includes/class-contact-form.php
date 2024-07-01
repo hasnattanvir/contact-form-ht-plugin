@@ -17,21 +17,22 @@ if (!class_exists('Contact_Form')) {
                 'nonce' => wp_create_nonce('contact_form_nonce'),
             ));
         }
+
         public function render_form_shortcode() {
             ob_start();
             ?>
             <div class="htsection">
                 <form id="contact-form" enctype="multipart/form-data">
                     <label for="cf-name">Name:</label>
-                    <input type="text" id="cf-name" name="name" required>
+                    <input type="text" id="cf-name" name="name" >
                     <label for="cf-email">Email:</label>
-                    <input type="email" id="cf-email" name="email" required>
+                    <input type="email" id="cf-email" name="email" >
                     <label for="cf-phone">Phone Number:</label>
-                    <input type="tel" id="cf-phone" name="phone" required>
+                    <input type="tel" id="cf-phone" name="phone" >
                     <label for="cf-photo">Photo:</label>
-                    <input type="file" id="cf-photo" name="photo" required>
+                    <input type="file" id="cf-photo" name="photo" accept="image/jpeg,image/png,image/jpg" >
                     <label for="cf-message">Message:</label>
-                    <textarea id="cf-message" name="message" required></textarea>
+                    <textarea id="cf-message" name="message" ></textarea>
                     <button type="submit">Submit</button>
                 </form>
                 <div id="cf-response"></div>
@@ -51,14 +52,56 @@ if (!class_exists('Contact_Form')) {
             $email = sanitize_email($_POST['email']);
             $phone = sanitize_text_field($_POST['phone']);
             $message = sanitize_textarea_field($_POST['message']);
+            
+            // PHP validation for name
+            if (empty($name)) {
+                wp_send_json_error('Name is required.');
+            }
+
+            if (!preg_match("/^[a-zA-Z ]*$/", $name)) {
+                wp_send_json_error('Only letters and white space allowed in name.');
+            }
+
+            // PHP validation for email
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                wp_send_json_error('Invalid email format.');
+            }
+
+            // PHP validation for phone
+            if (empty($phone)) {
+                wp_send_json_error('Phone number is required.');
+            }
+
+            if (!preg_match("/^[0-9]{10,15}$/", $phone)) {
+                wp_send_json_error('Invalid phone number format. Only numbers allowed and length should be between 10 to 15 digits.');
+            }
+
+            // PHP validation for message
+            if (empty($message)) {
+                wp_send_json_error('Message is required.');
+            }
+
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                wp_send_json_error('Invalid email format.');
+            }
 
             if (!empty($_FILES['photo']['name'])) {
-                $upload = wp_handle_upload($_FILES['photo'], array('test_form' => false));
-                if (isset($upload['url'])) {
-                    $photo_url = $upload['url'];
-                } else {
+                $allowed_file_types = array('image/jpeg', 'image/png', 'image/jpg');
+                $file_type = wp_check_filetype_and_ext($_FILES['photo']['tmp_name'], $_FILES['photo']['name']);
+
+                if (!in_array($file_type['type'], $allowed_file_types)) {
+                    wp_send_json_error('Only JPG, JPEG, and PNG files are allowed.');
+                }
+
+                $uploaded = media_handle_upload('photo', 0);
+
+                if (is_wp_error($uploaded)) {
                     wp_send_json_error('Photo upload failed.');
                 }
+
+                $photo_url = wp_get_attachment_url($uploaded);
+            } else {
+                wp_send_json_error('Please upload a photo.');
             }
 
             // Send email to admin

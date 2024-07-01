@@ -104,7 +104,7 @@ if (!class_exists('Contact_Form_Admin')) {
                 wp_die('Missing required fields.');
             }
 
-            if (!wp_verify_nonce($_POST['_wpnonce'], 'update_contact_form_entry_' . $_POST['id'])) {
+            if (!check_admin_referer('update_contact_form_entry_' . $_POST['id'])) {
                 wp_die('Invalid request.');
             }
 
@@ -119,6 +119,13 @@ if (!class_exists('Contact_Form_Admin')) {
             );
 
             if (!empty($_FILES['photo']['name'])) {
+                $allowed_file_types = array('image/jpeg', 'image/png', 'image/jpg');
+                $file_type = wp_check_filetype_and_ext($_FILES['photo']['tmp_name'], $_FILES['photo']['name']);
+
+                if (!in_array($file_type['type'], $allowed_file_types)) {
+                    wp_die('Only JPG, JPEG, and PNG files are allowed.');
+                }
+
                 $uploaded = media_handle_upload('photo', 0);
 
                 if (is_wp_error($uploaded)) {

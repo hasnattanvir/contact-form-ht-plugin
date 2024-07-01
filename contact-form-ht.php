@@ -55,3 +55,4 @@ function cf_create_table() {
 // Register the activation hook
 register_activation_hook(__FILE__, 'cf_create_table');
 ?>
+
