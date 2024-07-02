@@ -37,9 +37,20 @@
     height: 150px;
 }
 /* Styling for photo section */
-#cf-photo {
+#cfht-photo {
     background-color: #f5f5dc;
     padding: 11px;
+}
+
+#cfht-response{
+    width: 100%;
+    text-align: left;
+}
+#cfht-response p{
+    border-left: 6px solid #007bff;
+    border-radius: 5px;
+    padding: 10px 10px;
+    background-color:#FFF3CD;
 }
 
 /* Button styling */

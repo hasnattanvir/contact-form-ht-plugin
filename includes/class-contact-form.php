@@ -23,19 +23,19 @@ if (!class_exists('Contact_Form')) {
             ?>
             <div class="htsection">
                 <form id="contact-form" enctype="multipart/form-data">
-                    <label for="cf-name">Name:</label>
-                    <input type="text" id="cf-name" name="name" >
-                    <label for="cf-email">Email:</label>
-                    <input type="email" id="cf-email" name="email" >
-                    <label for="cf-phone">Phone Number:</label>
-                    <input type="tel" id="cf-phone" name="phone" >
-                    <label for="cf-photo">Photo:</label>
-                    <input type="file" id="cf-photo" name="photo" accept="image/jpeg,image/png,image/jpg" >
-                    <label for="cf-message">Message:</label>
-                    <textarea id="cf-message" name="message" ></textarea>
+                    <label for="cfht-name">Name:</label>
+                    <input type="text" id="cfht-name" name="name" >
+                    <label for="cfht-email">Email:</label>
+                    <input type="email" id="cfht-email" name="email" >
+                    <label for="cfht-phone">Phone Number:</label>
+                    <input type="tel" id="cfht-phone" name="phone" >
+                    <label for="cfht-photo">Photo:</label>
+                    <input type="file" id="cfht-photo" name="photo" accept="image/jpeg,image/png,image/jpg" >
+                    <label for="cfht-message">Message:</label>
+                    <textarea id="cfht-message" name="message" ></textarea>
                     <button type="submit">Submit</button>
                 </form>
-                <div id="cf-response"></div>
+                <div id="cfht-response"></div>
             </div>
             <?php
             return ob_get_clean();

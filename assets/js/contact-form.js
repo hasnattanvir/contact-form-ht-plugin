@@ -14,14 +14,14 @@ jQuery(document).ready(function($) {
             processData: false,
             success: function(response) {
                 if (response.success) {
-                    $('#cf-response').html('<p>' + response.data + '</p>');
+                    $('#cfht-response').html('<p>' + response.data + '</p>');
                     $('#contact-form')[0].reset();
                 } else {
-                    $('#cf-response').html('<p>' + response.data + '</p>');
+                    $('#cfht-response').html('<p>' + response.data + '</p>');
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                $('#cf-response').html('<p>There was an error: ' + errorThrown + '</p>');
+                $('#cfht-response').html('<p>There was an error: ' + errorThrown + '</p>');
                 console.log('Error:', textStatus, errorThrown);
             }
         });

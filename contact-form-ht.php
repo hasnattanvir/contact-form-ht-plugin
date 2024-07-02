@@ -20,18 +20,20 @@ if (!defined('ABSPATH')) {
 }
 
 // Include required files
+// admin
 include_once plugin_dir_path(__FILE__) . 'includes/class-contact-form.php';
+//user input
 include_once plugin_dir_path(__FILE__) . 'includes/class-contact-form-admin.php';
 
 // Initialize the plugin
-function cf_plugin_init() {
+function cfht_plugin_init() {
     $contact_form = new Contact_Form();
     $contact_form_admin = new Contact_Form_Admin();
 }
-add_action('plugins_loaded', 'cf_plugin_init');
+add_action('plugins_loaded', 'cfht_plugin_init');
 
 // Function to create database table on plugin activation
-function cf_create_table() {
+function cfht_create_table() {
     global $wpdb;
     $table_name = $wpdb->prefix . 'contact_form_entries';
 
@@ -53,6 +55,6 @@ function cf_create_table() {
 }
 
 // Register the activation hook
-register_activation_hook(__FILE__, 'cf_create_table');
+register_activation_hook(__FILE__, 'cfht_create_table');
 ?>
 

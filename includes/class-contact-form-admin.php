@@ -14,6 +14,15 @@ if (!class_exists('Contact_Form_Admin')) {
         }
 
         public function add_admin_menu() {
+            // page ttitle
+            // menu title
+            // required capability
+            // menu slug
+            // this argument is a callback function
+            // -this refers to the current class
+            // -admin-page (custom method display content menu page)
+            // icon
+            // menu position
             add_menu_page(
                 'Contact Form Submissions',
                 'Contact Form',
@@ -23,6 +32,12 @@ if (!class_exists('Contact_Form_Admin')) {
                 'dashicons-email-alt',
                 26
             );
+            // parent slug
+            // page title
+            // menu title
+            // capability
+            // menu slug
+            // callback function
             add_submenu_page(
                 'contact-form-submissions',
                 'Info',

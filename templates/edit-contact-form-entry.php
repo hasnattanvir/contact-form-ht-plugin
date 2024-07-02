@@ -12,25 +12,25 @@ if (!defined('ABSPATH')) {
 
         <table class="form-table">
             <tr>
-                <th><label for="cf-name">Name</label></th>
-                <td><input type="text" id="cf-name" name="name" value="<?php echo esc_attr($entry->name); ?>" required></td>
+                <th><label for="cfht-name">Name</label></th>
+                <td><input type="text" id="cfht-name" name="name" value="<?php echo esc_attr($entry->name); ?>" required></td>
             </tr>
             <tr>
-                <th><label for="cf-email">Email</label></th>
-                <td><input type="email" id="cf-email" name="email" value="<?php echo esc_attr($entry->email); ?>" required></td>
+                <th><label for="cfht-email">Email</label></th>
+                <td><input type="email" id="cfht-email" name="email" value="<?php echo esc_attr($entry->email); ?>" required></td>
             </tr>
             <tr>
-                <th><label for="cf-phone">Phone Number</label></th>
-                <td><input type="tel" id="cf-phone" name="phone" value="<?php echo esc_attr($entry->phone); ?>" required></td>
+                <th><label for="cfht-phone">Phone Number</label></th>
+                <td><input type="tel" id="cfht-phone" name="phone" value="<?php echo esc_attr($entry->phone); ?>" required></td>
             </tr>
             <tr>
-                <th><label for="cf-message">Message</label></th>
-                <td><textarea id="cf-message" name="message" required><?php echo esc_textarea($entry->message); ?></textarea></td>
+                <th><label for="cfht-message">Message</label></th>
+                <td><textarea id="cfht-message" name="message" required><?php echo esc_textarea($entry->message); ?></textarea></td>
             </tr>
             <tr>
-                <th><label for="cf-photo">Photo</label></th>
+                <th><label for="cfht-photo">Photo</label></th>
                 <td>
-                    <input type="file" id="cf-photo" name="photo">
+                    <input type="file" id="cfht-photo" name="photo">
                     <?php if (!empty($entry->photo_url)) : ?>
                         <p>Current Photo: <a href="<?php echo esc_url($entry->photo_url); ?>" target="_blank">View Photo</a></p>
                     <?php endif; ?>
